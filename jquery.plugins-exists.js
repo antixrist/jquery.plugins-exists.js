@@ -2,7 +2,7 @@
  * @author antixrist
  * @url https://github.com/antixrist/jquery.plugins-exists.js
  */
-;(function (window, document, $, undefined) {
+(typeof jQuery != 'undefined') && (function (window, document, $, undefined) {
   var _ = {};
 
   if (Array.isArray) {
@@ -78,9 +78,11 @@
 
   jqPluginsExists.checkPlugin = function (pluginName) {
     pluginName = pluginName.toString() || '';
-    return pluginName && typeof $.fn[pluginName] != 'undefined';
+    return pluginName && (typeof $.fn[pluginName] != 'undefined' || typeof $[pluginName] != 'undefined');
   };
 
   window.jqPluginsExists = $.pluginsExists = jqPluginsExists;
 
 })(window, document, jQuery);
+
+(typeof jQuery == 'undefined') && console && typeof console.error != 'undefined' && console.error('[$.pluginsExists] jQuery is undefined!');
