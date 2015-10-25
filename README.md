@@ -7,7 +7,7 @@ It has two variants of usage (both variants are the same):
 * with callback:
 ```javascript
 $.pluginsExists('form', 'fancybox', 'anotherPlugin', function () {
-  // all exist in $.fn
+  // all exist either in $ or in $.fn
   // callback is NOT async
 });
 
@@ -23,7 +23,7 @@ $.pluginsExists(['form', 'fancybox'], ['anotherPlugin'], function () {
 * and without callback:
 ```javascript
 if ($.pluginsExists('form', 'fancybox', 'anotherPlugin')) {
-  // all exist in $.fn
+  // all exist either in $ or in $.fn
 }
 
 if ($.pluginsExists(['form', 'fancybox', 'anotherPlugin'])) {
